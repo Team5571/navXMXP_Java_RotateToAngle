@@ -1,8 +1,10 @@
 package org.usfirst.frc5571.navxMXP_Java_RotateToAngle;
+import org.usfirst.frc5571.navxMXP_Java_RotateToAngle.Constants;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.kauailabs.navx.frc.AHRS.SerialDataType;
 
+import edu.wpi.first.wpilibj.ControllerPower;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.PIDController;
@@ -85,7 +87,7 @@ public class Robot extends SampleRobot implements PIDOutput {
     	RightMotorSlave.set(RightMotorMaster.getDeviceID());
         myRobot.setExpiration(0.1);
         stick = new Joystick(0);
-        xbox = new Joystick(2);
+        xbox = new Joystick(2);  // "Hardwire" xbox to port 2 in smart dashboard
         
         
         
@@ -141,19 +143,19 @@ public class Robot extends SampleRobot implements PIDOutput {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
             boolean rotateToAngle = false;
-            if ( stick.getRawButton(1)) {
+            if ( stick.getRawButton(Constants.XBOX_START_BUTTON)) {
                 ahrs.reset();
             }
-            if ( stick.getRawButton(2)) {
+            if ( stick.getRawButton(Constants.XBOX_Y_BUTTON)) {
                 turnController.setSetpoint(0.0f);
                 rotateToAngle = true;
-            } else if ( stick.getRawButton(3)) {
+            } else if ( stick.getRawButton(Constants.XBOX_B_BUTTON)) {
                 turnController.setSetpoint(90.0f);
                 rotateToAngle = true;
-            } else if ( stick.getRawButton(4)) {
+            } else if ( stick.getRawButton(Constants.XBOX_A_BUTTON)) {
                 turnController.setSetpoint(179.9f);
                 rotateToAngle = true;
-            } else if ( stick.getRawButton(5)) {
+            } else if ( stick.getRawButton(Constants.XBOX_X_BUTTON)) {
                 turnController.setSetpoint(-90.0f);
                 rotateToAngle = true;
             }
