@@ -49,6 +49,7 @@ public class Robot extends SampleRobot implements PIDOutput {
     Joystick stick;
     PIDController turnController;
     double rotateToAngleRate;
+    Joystick xbox;
     
     /* The following PID Controller coefficients will need to be tuned */
     /* to match the dynamics of your drive system.  Note that the      */
@@ -84,6 +85,7 @@ public class Robot extends SampleRobot implements PIDOutput {
     	RightMotorSlave.set(RightMotorMaster.getDeviceID());
         myRobot.setExpiration(0.1);
         stick = new Joystick(0);
+        xbox = new Joystick(2);
         
         
         
