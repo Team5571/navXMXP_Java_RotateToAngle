@@ -164,25 +164,25 @@ public class Robot extends SampleRobot implements PIDOutput {
 //                currentRotationRate = stick.getTwist();
             	currentRotationRate = 0;
             	 /* Display 6-axis Processed Angle Data                                      */
-//                SmartDashboard.putBoolean(  "IMU_Connected",        ahrs.isConnected());
-//                SmartDashboard.putBoolean(  "IMU_IsCalibrating",    ahrs.isCalibrating());
-//                SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
-//                SmartDashboard.putNumber(   "IMU_Pitch",            ahrs.getPitch());
-//                SmartDashboard.putNumber(   "IMU_Roll",             ahrs.getRoll());
-//                
-//                /* Display tilt-corrected, Magnetometer-based heading (requires             */
-//                /* magnetometer calibration to be useful)                                   */
-//                
-//                SmartDashboard.putNumber(   "IMU_CompassHeading",   ahrs.getCompassHeading());
+                SmartDashboard.putBoolean(  "IMU_Connected",        ahrs.isConnected());
+                SmartDashboard.putBoolean(  "IMU_IsCalibrating",    ahrs.isCalibrating());
+                SmartDashboard.putNumber(   "IMU_Yaw",              ahrs.getYaw());
+                SmartDashboard.putNumber(   "IMU_Pitch",            ahrs.getPitch());
+                SmartDashboard.putNumber(   "IMU_Roll",             ahrs.getRoll());
+                
+                /* Display tilt-corrected, Magnetometer-based heading (requires             */
+                /* magnetometer calibration to be useful)                                   */
+                
+                SmartDashboard.putNumber(   "IMU_CompassHeading",   ahrs.getCompassHeading());
 //                
 //                /* Display 9-axis Heading (requires magnetometer calibration to be useful)  */
 //                SmartDashboard.putNumber(   "IMU_FusedHeading",     ahrs.getFusedHeading());
 //
-//                /* These functions are compatible w/the WPI Gyro Class, providing a simple  */
-//                /* path for upgrading from the Kit-of-Parts gyro to the navx MXP            */
-//                
-//                SmartDashboard.putNumber(   "IMU_TotalYaw",         ahrs.getAngle());
-//                SmartDashboard.putNumber(   "IMU_YawRateDPS",       ahrs.getRate());
+                /* These functions are compatible w/the WPI Gyro Class, providing a simple  */
+                /* path for upgrading from the Kit-of-Parts gyro to the navx MXP            */
+                
+                SmartDashboard.putNumber(   "IMU_TotalYaw",         ahrs.getAngle());
+                SmartDashboard.putNumber(   "IMU_YawRateDPS",       ahrs.getRate());
 //
 //                /* Display Processed Acceleration Data (Linear Acceleration, Motion Detect) */
 //                
@@ -224,8 +224,8 @@ public class Robot extends SampleRobot implements PIDOutput {
 //                SmartDashboard.putString(   "YawAxisDirection",     yaw_axis.up ? "Up" : "Down" );
 //                SmartDashboard.putNumber(   "YawAxis",              yaw_axis.board_axis.getValue() );
 //                
-//                /* Sensor Board Information                                                 */
-//                SmartDashboard.putString(   "FirmwareVersion",      ahrs.getFirmwareVersion());
+                /* Sensor Board Information                                                 */
+                SmartDashboard.putString(   "FirmwareVersion",      ahrs.getFirmwareVersion());
 //                
 //                /* Quaternion Data                                                          */
 //                /* Quaternions are fascinating, and are the most compact representation of  */
@@ -237,9 +237,9 @@ public class Robot extends SampleRobot implements PIDOutput {
 ////                SmartDashboard.putNumber(   "QuaternionY",          ahrs.getQuaternionY());
 ////                SmartDashboard.putNumber(   "QuaternionZ",          ahrs.getQuaternionZ());
 //                
-//                /* Connectivity Debugging Support                                           */
-//                SmartDashboard.putNumber(   "IMU_Byte_Count",       ahrs.getByteCount());
-//                SmartDashboard.putNumber(   "IMU_Update_Count",     ahrs.getUpdateCount());
+                /* Connectivity Debugging Support                                           */
+                SmartDashboard.putNumber(   "IMU_Byte_Count",       ahrs.getByteCount());
+                SmartDashboard.putNumber(   "IMU_Update_Count",     ahrs.getUpdateCount());
             }
             try {
                 /* Use the joystick X axis for lateral movement,          */
@@ -248,8 +248,9 @@ public class Robot extends SampleRobot implements PIDOutput {
                 /* depending upon whether "rotate to angle" is active.    */
 //                myRobot.mecanumDrive_Cartesian(stick.getX(), stick.getY(), 
 //                                               currentRotationRate, ahrs.getAngle());
-            	myRobot.mecanumDrive_Cartesian(0.0, 0.0, 
-                      currentRotationRate, ahrs.getAngle());
+//            	myRobot.mecanumDrive_Cartesian(0.0, 0.0, 
+ //                     currentRotationRate, ahrs.getAngle());
+            	myRobot.arcadeDrive(0.0, currentRotationRate);
             	
                 
             } catch( RuntimeException ex ) {
