@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SerialPort.Parity;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.hal.SerialPortJNI;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -68,17 +69,19 @@ public class Robot extends SampleRobot implements PIDOutput {
 //    final static int frontRightChannel	= 1;
 //    final static int rearRightChannel	= 0;
     
-    private CANTalon frontLeft = new CANTalon(4);
-    private CANTalon rearLeft = new CANTalon(3);
-    private CANTalon frontRight = new CANTalon(2);
-    private CANTalon rearRight = new CANTalon(1);
+    private CANTalon LeftMotorMaster = new CANTalon(1);
+    private CANTalon LeftMotorSlave = new CANTalon(3);
+    private CANTalon RightMotorMaster = new CANTalon(2);
+    private CANTalon RightMotorSlave = new CANTalon(4);
  
         
     public Robot() {
         
-    	myRobot = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
-    	frontRight.setInverted(true);
-    	rearRight.setInverted(true);
+    	myRobot = new RobotDrive(LeftMotorMaster, RightMotorMaster);
+    	LeftMotorSlave.changeControlMode(TalonControlMode.Follower);
+    	LeftMotorSlave.set(LeftMotorMaster.getDeviceID());
+    	RightMotorSlave.changeControlMode(TalonControlMode.Follower);
+    	RightMotorSlave.set(RightMotorMaster.getDeviceID());
         myRobot.setExpiration(0.1);
         stick = new Joystick(0);
         
