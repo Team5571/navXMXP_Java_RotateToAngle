@@ -1,4 +1,4 @@
-package org.usfirst.frc.team5571.robot;
+package org.usfirst.frc5571.navxMXP_Java_RotateToAngle;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.kauailabs.navx.frc.AHRS.SerialDataType;
