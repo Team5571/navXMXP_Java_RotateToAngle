@@ -16,12 +16,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.SerialPort.Parity;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
+import edu.wpi.first.wpilibj.CANSpeedController.TalonControlMode;
 import edu.wpi.first.wpilibj.SerialPort.Port;
 import edu.wpi.first.wpilibj.hal.SerialPortJNI;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANSpeedController;
 
 /**
  * This is a demo program showing the use of the navX MXP to implement
@@ -72,10 +72,10 @@ public class Robot extends SampleRobot implements PIDOutput {
 //    final static int frontRightChannel	= 1;
 //    final static int rearRightChannel	= 0;
     
-    private CANTalon LeftMotorMaster = new CANTalon(1);
-    private CANTalon LeftMotorSlave = new CANTalon(3);
-    private CANTalon RightMotorMaster = new CANTalon(2);
-    private CANTalon RightMotorSlave = new CANTalon(4);
+    private CANSpeedController LeftMotorMaster = new CANSpeedController(1);
+    private CANSpeedController LeftMotorSlave = new CANSpeedController(3);
+    private CANSpeedController RightMotorMaster = new CANSpeedController(2);
+    private CANSpeedController RightMotorSlave = new CANSpeedController(4);
  
         
     public Robot() {

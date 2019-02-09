@@ -13,5 +13,8 @@
 			<attribute name="javadoc_location" value="file:/Users/bobbygintz/git/navXMXP_Java_RotateToAngle/navx-mxp/java/docs/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
+	<classpathentry kind="var" path="cscore" sourcepath="cscore.sources"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
